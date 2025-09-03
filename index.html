@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Godwin | Full Stack Developer & AI Expert</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:'Inter',sans-serif;
+      background:#0a192f;
+      color:#e6f1ff;
+      scroll-behavior:smooth;
+      overflow-x:hidden;
+    }
+
+    /* Hero */
+    header{
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+    header::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:url('https://images.unsplash.com/photo-1581091870622-7b1a61bb3c57?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      z-index:-2;
+      filter:brightness(0.5);
+    }
+    header::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(10,25,47,0.8);
+      z-index:-1;
+    }
+    nav{
+      position:absolute;
+      top:20px;
+      right:30px;
+      display:flex;
+      gap:1.5rem;
+    }
+    nav a{
+      color:#e6f1ff;
+      font-weight:600;
+      text-decoration:none;
+      transition:.3s;
+    }
+    nav a:hover{color:#64ffda;}
+    .prompt{
+      font-family:'Fira Code',monospace;
+      font-size:1rem;
+      color:#64ffda;
+      margin-bottom:1rem;
+      opacity:0.9;
+      animation:blink 1.2s step-start infinite;
+    }
+    @keyframes blink{
+      50%{opacity:0;}
+    }
+    header h1{
+      font-size:3.5rem;
+      font-weight:800;
+      margin-bottom:1rem;
+      background:linear-gradient(90deg,#3b82f6,#06b6d4);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    header p{
+      font-size:1.2rem;
+      max-width:650px;
+      margin:auto;
+      line-height:1.7;
+      color:#ccd6f6;
+    }
+    .btn{
+      margin-top:2rem;
+      display:inline-block;
+      background:linear-gradient(90deg,#2563eb,#06b6d4);
+      color:white;
+      padding:.9rem 2rem;
+      border-radius:9999px;
+      font-weight:600;
+      text-decoration:none;
+      transition:transform .3s, box-shadow .3s;
+    }
+    .btn:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 20px rgba(100,255,218,0.4);
+    }
+
+    /* Sections */
+    section{
+      max-width:1100px;
+      margin:auto;
+      padding:5rem 1rem;
+    }
+    .title{
+      font-size:2rem;
+      font-weight:700;
+      text-align:center;
+      margin-bottom:3rem;
+      color:#64ffda;
+      font-family:'Fira Code',monospace;
+    }
+
+    /* Services & Projects */
+    .grid{
+      display:grid;
+      gap:2rem;
+    }
+    @media(min-width:768px){
+      .grid-3{grid-template-columns:repeat(3,1fr);}
+      .grid-2{grid-template-columns:repeat(2,1fr);}
+    }
+    .card{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:1rem;
+      padding:2rem;
+      backdrop-filter:blur(20px);
+      transition:transform .4s, box-shadow .4s;
+    }
+    .card:hover{
+      transform:translateY(-10px) scale(1.02);
+      box-shadow:0 0 30px rgba(100,255,218,0.3);
+    }
+    .card i{
+      font-size:2rem;
+      color:#64ffda;
+      margin-bottom:1rem;
+    }
+    .card h3{margin-bottom:.5rem;color:#e6f1ff;}
+
+    /* Projects */
+    .project{
+      border-radius:1rem;
+      overflow:hidden;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.1);
+      transition:.3s;
+    }
+    .project img{
+      width:100%;
+      height:200px;
+      object-fit:cover;
+    }
+    .project div{
+      padding:1rem;
+    }
+    .project:hover{
+      transform:translateY(-5px);
+      box-shadow:0 0 20px rgba(100,255,218,0.2);
+    }
+
+    /* Contact */
+    #contact p{
+      text-align:center;
+      font-size:1.1rem;
+      margin:.5rem 0;
+    }
+    #contact a{color:#64ffda;text-decoration:none;}
+    #contact a:hover{text-decoration:underline;}
+
+    /* Footer */
+    footer{
+      background:#020c1b;
+      text-align:center;
+      padding:2rem 1rem;
+      color:#8892b0;
+    }
+    footer a{
+      margin:0 .5rem;
+      font-size:1.3rem;
+      color:#8892b0;
+      transition:.3s;
+    }
+    footer a:hover{color:#64ffda;}
+
+    /* Scroll animations */
+    [data-animate]{
+      opacity:0;
+      transform:translateY(40px) scale(0.98);
+      transition:all 1s cubic-bezier(.215,.61,.355,1);
+    }
+    [data-animate].active{
+      opacity:1;
+      transform:translateY(0) scale(1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hero-content">
+      <div class="prompt">&gt; npx hire-godwin</div>
+      <h1>Godwin</h1>
+      <p>Full Stack Developer • AI Expert • Graphics Designer<br>I build and teach world-class digital solutions.</p>
+      <a href="#contact" class="btn">Hire Me</a>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about" data-animate>
+    <h2 class="title">About Me</h2>
+    <p style="max-width:750px;margin:auto;text-align:center;font-size:1.1rem;line-height:1.8;color:#ccd6f6;">
+      I’m a passionate Full Stack Developer and AI Expert based in Abuja, Nigeria.  
+      I specialize in creating modern, responsive websites and intelligent solutions for schools, NGOs, businesses, companies, churches, and investment platforms.  
+      With graphics design and training expertise, I not only build but also empower others with essential digital skills.
+    </p>
+  </section>
+
+  <!-- Services -->
+  <section id="services" data-animate>
+    <h2 class="title">What I Do</h2>
+    <div class="grid grid-3">
+      <div class="card"><i class="fa-solid fa-code"></i><h3>Web Development</h3><p>I design responsive, modern websites tailored for schools, NGOs, businesses, companies, and churches.</p></div>
+      <div class="card"><i class="fa-solid fa-robot"></i><h3>AI & Bots</h3><p>I create intelligent bots and AI-powered platforms that simplify workflows and boost efficiency.</p></div>
+      <div class="card"><i class="fa-solid fa-pen-nib"></i><h3>Graphics & Branding</h3><p>Professional graphics that help businesses stand out and leave lasting impressions.</p></div>
+      <div class="card"><i class="fa-solid fa-chalkboard-user"></i><h3>Training & Teaching</h3><p>I provide coaching and training in development, AI, and design, helping others grow their careers.</p></div>
+      <div class="card"><i class="fa-solid fa-lightbulb"></i><h3>Custom Solutions</h3><p>From investment websites to automation tools, I create solutions that match unique needs.</p></div>
+      <div class="card"><i class="fa-solid fa-handshake"></i><h3>Consulting</h3><p>Expert strategies and advice to help brands and startups succeed digitally.</p></div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" data-animate>
+    <h2 class="title">Projects</h2>
+    <div class="grid grid-2">
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Project 1">
+        <div>
+          <h3>School Management Website</h3>
+          <p>A modern platform for school administration and student engagement.</p>
+        </div>
+      </div>
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1505685296765-3a2736de412f?auto=format&fit=crop&w=800&q=80" alt="Project 2">
+        <div>
+          <h3>AI Chatbot</h3>
+          <p>An intelligent chatbot for businesses to automate customer support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" data-animate>
+    <h2 class="title">Get In Touch</h2>
+    <p><i class="fa-solid fa-envelope"></i> <a href="mailto:teconettmail@gmail.com">teconettmail@gmail.com</a></p>
+    <p><i class="fa-solid fa-phone"></i> <a href="tel:+2348071739198">+234 807 173 9198</a></p>
+    <p><i class="fa-solid fa-location-dot"></i> Abuja, Nigeria</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Godwin. All rights reserved.</p>
+    <div style="margin-top:1rem;">
+      <a href="mailto:teconettmail@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+      <a href="tel:+2348071739198"><i class="fa-solid fa-phone"></i></a>
+      <a href="#"><i class="fa-brands fa-github"></i></a>
+      <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+    </div>
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const elements=document.querySelectorAll('[data-animate]');
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('active');
+        }
+      });
+    },{threshold:0.2});
+    elements.forEach(el=>observer.observe(el));
+  </script>
+</body>
+</html>
